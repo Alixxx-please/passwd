@@ -5,9 +5,6 @@ use std::process::Command;
 use clipboard_win::{formats, set_clipboard};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let path = env::current_dir()?;
-    println!("The current directory is {}", path.display());
-
     let mut exclude_chars = String::new();
     let mut passwd_length = 48;
     let mut args = env::args().skip(1);
@@ -34,6 +31,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                     .arg("irm https://raw.githubusercontent.com/Alixxx-please/passwd/master/install.ps1 | iex")
                     .output()
                     .expect("Failed to execute upgrade command");
+                return Ok(());
             }
             _ => {}
         }
