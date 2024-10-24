@@ -1,6 +1,7 @@
 use rand::Rng;
 use std::env;
 use std::io;
+use std::process::Command;
 use clipboard_win::{formats, set_clipboard};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -27,6 +28,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                         return Err("Invalid length argument".into());
                     }
                 }
+            }
+            "upgrade" => {
+                let output = Command::new("powershell")
+                    .args(["-c", "\"irm", "https://github.com/Alixxx-please/passwd/blob/master/install.ps1", "|", "iex\""])
+                    .output()
+                    .expect("Failed to execute upgrade command");
+                println!("Upgrade output: {}", String::from_utf8_lossy(&output.stdout));
             }
             _ => {}
         }
