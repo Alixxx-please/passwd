@@ -30,11 +30,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 }
             }
             "upgrade" => {
-                let output = Command::new("powershell")
-                    .args(["-c", "\"irm", "https://github.com/Alixxx-please/passwd/blob/master/install.ps1", "|", "iex\""])
+                Command::new("powershell")
+                    .arg("irm https://raw.githubusercontent.com/Alixxx-please/passwd/master/install.ps1 | iex")
                     .output()
                     .expect("Failed to execute upgrade command");
-                println!("Upgrade output: {}", String::from_utf8_lossy(&output.stdout));
             }
             _ => {}
         }
