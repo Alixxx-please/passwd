@@ -28,14 +28,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
       }
       "upgrade" => {
         Command::new("powershell")
-            .arg("irm https://raw.githubusercontent.com/Alixxx-please/passwd/master/install.ps1 | iex")
+            .arg("irm https://raw.githubusercontent.com/Alixxx-please/passwd/main/install.ps1 | iex")
             .output()
             .expect("Failed to execute upgrade command");
         return Ok(());
       }
       "uninstall" => {
         Command::new("powershell")
-            .arg("irm https://raw.githubusercontent.com/Alixxx-please/passwd/master/uninstall.ps1 | iex")
+            .arg("irm https://raw.githubusercontent.com/Alixxx-please/passwd/main/uninstall.ps1 | iex")
             .output()
             .expect("Failed to execute uninstall command");
         return Ok(());
