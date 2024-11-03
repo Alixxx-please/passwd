@@ -1,6 +1,6 @@
 # Install (Windows):
 ```sh
-powershell -c "irm https://raw.githubusercontent.com/Alixxx-please/passwd/master/install.ps1 | iex"`
+powershell -c "irm https://raw.githubusercontent.com/Alixxx-please/passwd/main/install.ps1 | iex"`
 ```
 
 # Possible arguments:
